@@ -100,6 +100,10 @@ public class GlobalDefaults implements GlobalOptions  {
         return false;
     }
 
+    public String getCleanRemoteRegular() {
+        return null;
+    }
+
     public boolean isNoDefaultExcludes() {
         return false;
     }

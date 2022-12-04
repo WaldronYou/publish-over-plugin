@@ -40,6 +40,8 @@ public interface TransferOptions {
 
     boolean isCleanRemote();
 
+    String getCleanRemoteRegular();
+
     boolean isNoDefaultExcludes();
 
     boolean isMakeEmptyDirs();

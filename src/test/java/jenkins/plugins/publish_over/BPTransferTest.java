@@ -504,9 +504,9 @@ public class BPTransferTest {
         final RandomFile log1 = new RandomFile(baseDir.getRoot(), "1.log");
         final RandomFile log2 = new RandomFile(baseDir.getRoot(), "2.log");
         final RandomFile log3 = new RandomFile(baseDir.getRoot(), "3.log");
-        final BPTransfer transfer = new BPTransfer("*", "", "", "", false, false, true, false, false, null);
+        final BPTransfer transfer = new BPTransfer("*", "", "", "", false, false, true,null, false, false, null);
         expect(mockClient.changeToInitialDirectory()).andReturn(true);
-        mockClient.deleteTree();
+        mockClient.deleteTree(null);
         expect(mockClient.changeToInitialDirectory()).andReturn(true);
         expectTransferFile(transfer, log1, log2);
         expectLastCall().andThrow(new IOException());
@@ -533,9 +533,9 @@ public class BPTransferTest {
         final RandomFile log1 = new RandomFile(baseDir.getRoot(), "1.log");
         final RandomFile log2 = new RandomFile(baseDir.getRoot(), "2.log");
         final RandomFile log3 = new RandomFile(baseDir.getRoot(), "3.log");
-        final BPTransfer transfer = new BPTransfer("*", "", "", "", false, false, true, false, false, null);
+        final BPTransfer transfer = new BPTransfer("*", "", "", "", false, false, true,null, false, false, null);
         expect(mockClient.changeToInitialDirectory()).andReturn(true);
-        mockClient.deleteTree();
+        mockClient.deleteTree(null);
         expectLastCall().andThrow(new IOException());
         mockControl.replay();
         BPTransfer.TransferState state = null;
@@ -549,7 +549,7 @@ public class BPTransferTest {
         mockControl.verify();
         mockControl.reset();
         expect(mockClient.changeToInitialDirectory()).andReturn(true);
-        mockClient.deleteTree();
+        mockClient.deleteTree(null);
         expect(mockClient.changeToInitialDirectory()).andReturn(true);
         expectTransferFile(transfer, log1, log2, log3);
         final int expectedFileCount = 3;
